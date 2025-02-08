@@ -1,0 +1,882 @@
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&display=swap');
+
+
+:root {
+    --caff: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* colors */
+    --grey-900: hsl(221, 22%, 14%);
+    --grey-800: hsl(220, 22%, 20%);
+    --grey-700: hsl(220, 22%, 27%);
+    --grey-400: hsl(220, 22%, 40%);
+    --grey-170: hsl(219, 21%, 87%);
+    --grey-150: hsl(220, 22%, 85%);
+    --grey-100: hsl(218, 22%, 90%);
+    --grey-50: hsl(220, 23%, 95%);
+
+    /* font sizes */
+    --nav-link-size: clamp(0.75rem, calc(5vw + 0.6rem), 1.15rem);
+    --title-size: clamp(0.67rem, calc(4.5vw + 0.55rem), 1.07rem);
+    --heading-1-size: clamp(1.5rem, calc(6.1vw + 0.8rem), 4rem);
+    --heading-2-size: clamp(1.1rem, calc(5.4vw + 0.5rem), 3.1rem);
+    --para-size: clamp(0.6rem, calc(4vw + 0.5rem), 1rem);
+
+    /* font weights */
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+
+    /* letter spaces */
+    --ls-02: 0.02rem;
+    --ls-035: 0.035rem;
+    --ls-04: 0.04rem;
+    --ls-05: 0.05rem;
+
+    /* line heights */
+    --heading-1-lh: clamp(1.6rem, calc(7vw + 0.9rem), 4.35rem);
+    --heading-2-lh: clamp(1.5rem, calc(6vw + 0.8rem), 3.4rem);
+    --para-lh: clamp(0.8rem, calc(5.5vw + 0.7rem), 1.25rem);
+
+    /* transitions */
+    --transition-duration-15: 0.15s;
+    --transition-duration-25: 0.25s;
+    --transition-duration-3: 0.3s;
+    --transition-ease-out: ease-out;
+    
+    /* spacings */
+    --s-o6: 0.6rem;
+    --s-o8: 0.8rem;
+    --s-1: 1rem;
+    --s-1o3: 1.3rem;
+    --s-1o5: 1.5rem;
+    --s-2: 2rem;
+    --s-3: 3rem;
+    --s-3o5: 3.5rem;
+    --s-5o5: 5.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Red Hat Display", var(--caff);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 16px;
+    background-color: var(--grey-50);
+}
+
+
+/* some reusable styles */
+h2 {    
+    font-size: var(--heading-2-size);
+    line-height: var(--heading-2-lh);
+    letter-spacing: var(--ls-02);
+    
+    margin-bottom: var(--s-1);
+}
+
+p, button, .hero-btns > a {
+    font-family: "Montserrat", var(--caff);
+}
+
+p {
+    font-size: var(--para-size);
+    font-weight: var(--fw-500);
+}
+
+.title {
+    font-size: var(--title-size);
+    font-weight: var(--fw-600);
+    color: var(--grey-800);
+    letter-spacing: var(--ls-02);
+    max-width: fit-content;
+
+    padding: 0.55rem 1.35rem 0.65rem 1.35rem;
+    margin-bottom: var(--s-1o5);
+    border: 1px solid var(--grey-400);
+    border-radius: 5rem;
+}
+
+
+/* Wrapper */
+.wrapper {
+    width: 80rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--s-1);
+}
+
+/* Navbar */
+.wrapper > header > #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: hsl(220, 22%, 93%, 0.2);
+    backdrop-filter: blur(1.2rem);
+    padding: 0.3rem var(--s-1o3) 0.45rem var(--s-1o3);
+    border-bottom: 2px solid var(--grey-900);
+
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+
+#navbar > .logo {
+    text-decoration: none;
+
+    font-size: 3.2rem;
+    font-weight: var(--fw-600);
+    color: var(--grey-800);
+    letter-spacing: var(--ls-04);
+    font-family: "Smooch Sans", var(--caff);
+}
+
+#navbar > .nav-links {
+    list-style-type: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.3rem;
+
+    margin-top: 0.1rem;
+}
+
+.nav-links > li > .nav-link {
+    position: relative;
+
+    text-decoration: none;
+    font-size: var(--nav-link-size);
+    font-weight: var(--fw-600);
+    color: var(--grey-900);
+    letter-spacing: var(--ls-04);
+}
+.nav-links > li > .nav-link::before {
+    position: absolute;
+    content: "";
+    bottom: -2px;
+    left: 0;
+    z-index: 10;
+
+    height: 3px;
+    width: 0;
+    background-color: var(--grey-700);
+    border-radius: var(--s-5o5);
+
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+.nav-links > li > .nav-link.active::before {
+    width: 100%;
+}
+
+#navbar > ul > #hamburgerClose, #navbar > #hamburgerOpen {
+    display: none;
+    cursor: pointer;
+}
+
+#navbar > ul > #hamburgerClose, #navbar > #hamburgerOpen {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* Hero */
+.wrapper > main > #hero {
+    padding-top: 9.5rem;
+}
+
+#hero > .hero-text-btns {
+    color: var(--grey-900);
+    margin-bottom: var(--s-3o5);
+}
+
+.hero-text-btns > h1 {
+    font-size: var(--heading-1-size);
+    line-height: var(--heading-1-lh);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-05);
+
+    margin-bottom: var(--s-o6);
+    margin-right: var(--s-o6);
+    margin-left: -0.1rem;
+}
+
+.hero-text-btns > h1 > span {
+    font-family: "Bebas Neue", var(--caff);
+    font-style: oblique;
+    letter-spacing: 0.15rem;
+}
+
+.hero-text-btns > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-2);
+}
+
+.hero-text-btns > div > p {
+    flex-basis: 50%;
+    margin-right: var(--s-o6);
+}
+
+.hero-text-btns > div > .hero-btns {
+    align-self: self-end;
+}
+
+.hero-btns > a {
+    text-decoration: none;
+    font-size: var(--para-size);
+    color: var(--grey-900);
+    
+    border-radius: 1.25rem;
+    padding: 0.75rem 1.6rem var(--s-o8) 1.6rem;
+    cursor: pointer;
+
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+
+.hero-btns > a:first-child {
+    color: var(--grey-50);
+    font-weight: var(--fw-400);
+    letter-spacing: var(--ls-04);
+    
+    background-color: var(--grey-800);
+    border: 1px solid var(--grey-800);
+}
+
+.hero-btns > a:last-child {
+    font-weight: var(--fw-600);
+    letter-spacing: var(--ls-02);
+
+    background-color: transparent;
+    border: 1px solid var(--grey-900);
+
+    margin-left: var(--s-o8);
+}
+
+.hero-btns > a:first-child:hover {
+    background-color: var(--grey-700);
+    border: 1px solid var(--grey-700);
+}
+
+.hero-btns > a:last-child:hover {
+    background-color: var(--grey-150);
+}
+
+#hero > .hero-img {
+    min-height: fit-content;
+}
+
+.hero-img > img {
+    max-width: 100%;
+    height: auto;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: var(--s-1o5);
+}
+
+
+/* About */
+.wrapper > main > #about {
+    padding-top: var(--s-5o5);
+}
+
+#about > .about-text {
+    color: var(--grey-900);
+    margin-bottom: var(--s-3o5);
+}
+
+.about-text > p {
+    max-width: 50%;
+}
+
+#about > .about-statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+
+.about-statistics > .statistic {
+    position: relative;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+    min-height: 10rem;
+    overflow: hidden;
+    
+    color: var(--grey-900);
+
+    padding: var(--s-1) var(--s-1o5);
+    border: 2px solid var(--grey-400);
+    border-radius: var(--s-1);
+
+    transition: var(--transition-duration-25) var(--transition-ease-out);
+}
+
+.about-statistics > .statistic > img {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: -10;
+
+    max-width: 8rem;
+    pointer-events: none;
+}
+
+.statistic > div > .number {
+    font-size: 2.2rem;
+    font-weight: var(--fw-600);
+}
+
+.statistic > div > .text {
+    font-size: var(--nav-link-size);
+}
+
+
+/* Featured Cars */
+#featured-cars {
+    padding-top: var(--s-5o5);
+}
+
+#featured-cars > .featured-cars-text {
+    color: var(--grey-900);
+    margin-bottom: var(--s-3);
+}
+
+.featured-cars-text > h2 {
+    align-self: center;
+    margin-bottom: var(--s-o6);
+}
+
+#featured-cars > .featured-cars-imgs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.35rem;
+
+    transition: var(--transition-duration-25) var(--transition-ease-out);
+}
+
+.featured-cars-imgs > img {
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+
+    outline: 1px solid var(--grey-170);
+    border-radius: var(--s-1o3);
+}
+
+
+/* Partners */
+.wrapper > main > #partners {
+    padding-block: var(--s-5o5);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: var(--s-3);
+    row-gap: 4rem;
+    flex-wrap: wrap;
+
+} 
+
+#partners > img {
+    max-width: 8rem;
+    height: auto;
+}
+
+
+/* Testimonials */
+#testimonials > .testimonials-text {
+    color: var(--grey-900);
+    margin-bottom: var(--s-3);
+}
+
+.testimonials-text > h2 {
+    margin-bottom: var(--s-o6);
+}
+
+#testimonials > .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: var(--s-1);
+}
+
+.testimonials-grid > .testimonial {    
+    color: var(--grey-150);
+    background-color: var(--grey-400);
+
+    padding: 1.8rem;
+    border-radius: var(--s-1o3);
+    
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+
+.testimonial > .testimonial-text {
+    position: relative;
+    margin-bottom: var(--s-1o5);
+}
+
+.testimonial-text > img {
+    position: absolute;
+    top: -14px;
+    left: 0;
+    
+    width: clamp(1.2rem, calc(8.5vw + 1rem), 3rem);
+    opacity: 0.165;
+    pointer-events: none;
+    
+    transition: var(--transition-duration-3) var(--transition-ease-out);
+}
+
+.testimonial-text > p {
+    font-weight: var(--fw-400);
+    letter-spacing: var(--ls-035);
+    line-height: var(--para-lh);
+    z-index: 20;
+}
+
+.testimonial > .client {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.client > .client-img {
+    max-width: 2.6rem;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+
+    outline: 1px solid hsla(220, 22%, 97%, 0.8);
+    border-radius: 50%;
+}
+
+.client > .client-name-role > h3 {
+    font-size: var(--title-size);
+    font-weight: var(--fw-600);
+    letter-spacing: var(--ls-04);
+
+    transition: var(--transition-duration-15) var(--transition-ease-out);
+}
+
+.client > .client-name-role > p {
+    font-size: clamp(0.6rem, calc(4vw + 0.45rem), 0.85rem);
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    color: var(--grey-150);
+}
+
+
+/* Footer */
+footer {
+    padding-top: var(--s-5o5);
+    padding-bottom: var(--s-2);
+}
+
+footer > .footer-text {
+    color: var(--grey-900);
+    margin-bottom: var(--s-3o5);
+}
+
+.footer-text > h2 {
+    margin-bottom: var(--s-o8);
+}
+
+footer > .footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s-1o5);
+}
+
+.footer-content > .social-links {
+    display: flex;
+    gap: var(--s-1o3);
+
+    transition: var(--transition-duration-25) var(--transition-ease-out);
+}
+
+.social-links > img {
+    max-width: 3rem;
+    cursor: pointer;
+
+    transition: var(--transition-duration-25) var(--transition-ease-out);
+}
+
+.social-links > img:hover {
+    scale: 1.05;
+}
+
+.footer-content > .email > a {
+    text-decoration: none;
+    color: var(--grey-400);
+    font-size: var(--para-size);
+    font-weight: var(--fw-500);
+    letter-spacing: var(--ls-035);
+    
+    transition: var(--transition-duration-25) var(--transition-ease-out);
+}
+
+.email > a:hover {
+    color: hsl(220, 22%, 60%);
+}
+
+.footer-content > .footer-box {
+    text-align: center;
+}
+
+.footer-box > img {
+    max-width: 4.2rem;
+
+    padding: var(--s-o6);
+    background-color: var(--grey-100);
+    border-radius: var(--s-1o3);
+}
+
+.footer-box > p:nth-child(even) {
+    font-size: var(--title-size);
+    font-weight: var(--fw-600);
+    letter-spacing: var(--ls-02);
+    color: var(--grey-800);
+
+    margin-block: var(--s-o6);
+}
+
+.footer-box > p {
+    color: var(--grey-400);
+}
+
+
+
+/* Scroll-top-btn */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 1.7rem;
+    right: 1.7rem;
+    /* z-index: 20; */
+    width: 50px;
+    height: 50px;
+    border: 1px solid hsla(220, 22%, 90%, 0.3);
+    border-radius: 50%;
+    background-color: hsla(220, 22%, 15%, 0.8);
+    backdrop-filter: blur(0.3rem);
+    color: var(--grey-100);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    visibility: hidden; /* Hidden initially */
+    opacity: 0;
+    transition: visibility var(--transition-duration-25) ease-in-out, opacity var(--transition-duration-25) ease-in-out;
+}
+
+.scroll-top-btn > img {
+    max-width: 35%;
+    margin-left: 0.035rem;
+}
+
+.scroll-top-btn.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+ /* For WebKit-based browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Light theme  */
+::-webkit-scrollbar-track {
+    background-color: var(--grey-50);
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: grab;
+    background-color: var(--grey-700);
+    border: 1px solid var(--grey-50);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--grey-900);
+}
+
+::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+}
+
+
+
+/* *Responsiveness */
+@media (max-width: 1280px) {
+    /* Wrapper */
+    .wrapper {
+        padding-inline: var(--s-1o5);
+    }
+}
+
+@media (max-width: 1119px) {
+    /* Footer */
+    .footer-content > .social-links {
+        gap: var(--s-1);
+    }
+}
+
+@media (max-width: 1024px) {
+    /* About */ 
+    #about > .about-statistics {
+        gap: var(--s-3);
+    }
+
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+    } 
+}
+
+@media (max-width: 1023px) {
+    /* Footer */
+    footer > .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: var(--s-3o5);
+    }
+
+    .footer-content > .address {
+        grid-column: 1 / 4;
+    }
+}
+
+@media (max-width: 929px) {
+    /* About */   
+    .about-text > p {
+        max-width: 100%;
+    }
+    
+    #about > .about-statistics {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.75rem;
+    }
+}
+
+@media (max-width: 909px) {
+    /* Hero */
+    .hero-text-btns > div {
+        flex-wrap: wrap;
+        gap: 2.35rem;
+    }
+
+    .hero-text-btns > div > p {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 824px) {
+    /* About */
+    #about > .about-statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+     /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--s-1o3);
+    } 
+
+    /* Footer */
+    footer > .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content > .social-links {
+        justify-content: center;
+    }
+
+    .footer-content > .phone {
+        grid-column: 1;
+    }
+
+    .footer-content > .address {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    #navbar > .nav-links {
+        all: unset;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        
+        list-style-type: none;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s-3o5);
+    
+        min-height: 100dvh;
+        background-color: hsl(220, 22%, 90%, 0.98);
+        padding: 0 var(--s-3o5) 0 5rem;
+        border-left: 1px solid hsla(220, 22%, 10%, 0.3);
+
+        transition: 0.6s;
+    }
+
+    #navbar > .nav-links.open {
+        right: 0;
+    }
+    
+    #navbar > .nav-links > li > .nav-link {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.08rem;
+    }
+
+    #navbar > .nav-links > #hamburgerClose, #navbar > #hamburgerOpen {
+        display: block;
+        margin-right: -0.54rem;
+    }
+
+    #navbar > .nav-links > #hamburgerClose {
+        margin-bottom: var(--s-1);
+    }
+}
+
+@media (max-width: 680px) {
+     /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.15rem;
+    }
+
+    /* Footer */
+    footer > .footer-content {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 4.2rem;
+    }
+
+    .footer-content > .phone, .footer-content > .address  {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 599px) {
+    .title {
+        font-size: var(--para-size);
+        padding-bottom: 0.55rem;
+    }
+
+    /* Navbar */
+    .wrapper > header > #navbar {
+        padding-inline: var(--s-1);
+    }
+
+    /* About */
+    #about > .about-statistics {
+        gap: var(--s-2);
+    }
+
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s-1o5);
+    }
+}
+
+@media (max-width: 470px) {
+    /* About */
+    #about > .about-statistics {
+        gap: var(--s-1o5);
+    }
+
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.4rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .wrapper {
+        padding-inline: 1.25em;
+    }
+}
+
+@media (max-width: 399px) {
+    /* About */
+    #about > .about-statistics {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 389px) { 
+    /* Hero */
+    .hero-text-btns > div > .hero-btns {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: var(--s-o8);
+    }
+
+    .hero-btns > a {
+        text-align: center;
+    }
+
+    .hero-btns > a:last-child {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.15rem;
+    }
+}
+
+@media (max-width: 339px) {
+    /* Featured Cars */
+    #featured-cars > .featured-cars-imgs {
+        gap: 1.05rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid > .testimonial {    
+        padding: 1.6rem var(--s-1o5);
+        max-width: 93%;
+    }
+}
+
