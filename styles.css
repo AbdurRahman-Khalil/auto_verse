@@ -599,7 +599,9 @@ footer > .footer-content {
     cursor: pointer;
     visibility: hidden; /* Hidden initially */
     opacity: 0;
-    transition: visibility var(--transition-duration-25) ease-in-out, opacity var(--transition-duration-25) ease-in-out;
+    transition: 
+        visibility var(--transition-duration-25) ease-in-out, 
+        opacity var(--transition-duration-25) ease-in-out;
 }
 
 .scroll-top-btn > img {
@@ -640,7 +642,7 @@ footer > .footer-content {
 
 
 
-/* *Responsiveness */
+/* Responsiveness */
 @media (max-width: 1280px) {
     /* Wrapper */
     .wrapper {
