@@ -50,7 +50,7 @@ const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 // Show the button when the user scrolls down
 const handleScrollTopBtn = () => {
-    if (window.scrollY > 185) {
+    if (window.scrollY > 210) {
         scrollTopBtn.classList.add("show");
     } else {
         scrollTopBtn.classList.remove("show");
