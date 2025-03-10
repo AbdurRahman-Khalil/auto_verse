@@ -7,4 +7,5 @@ This project was created as a personal refresher to revisit the fundamentals of 
 ## 🧰 Tech Stack
 - ![HTML](https://img.shields.io/badge/-HTML5-orange?logo=html5&logoColor=white&style=flat) For structure of the website.
 - ![CSS](https://img.shields.io/badge/-CSS3-blue?logo=css3&logoColor=white&style=flat) For Styling of the website.
-- ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?logo=javascript&logoColor=black&style=flat) For adding interactivity to the website.
+- ![JavaScript](https://img.shields.io/badge/-JavaScript-black?logo=javascript&logoColor=yellow&style=flat)
+
